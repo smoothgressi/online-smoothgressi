@@ -1,6 +1,6 @@
 {
-  "name": "Smoothgressi",
-  "short_name": "Smoothgressi",
+  "name": "Online Smoothgressi",
+  "short_name": "Online Smoothgressi",
   "description": "Create and visualize graphs easily",
   "start_url": "/online-smoothgressi",
   "display": "standalone", 
