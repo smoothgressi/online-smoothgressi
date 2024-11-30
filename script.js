@@ -115,20 +115,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
   // Show a custom install button in your UI (optional).
-  const installButton = document.createElement("button");
-  installButton.innerText = "Install Smoothgressi";
-  installButton.style.position = "fixed";
-  installButton.style.bottom = "20px";
-  installButton.style.left = "20px";
-  installButton.style.padding = "10px 20px";
-  installButton.style.backgroundColor = "#28a745";
-  installButton.style.color = "#fff";
-  installButton.style.border = "none";
-  installButton.style.borderRadius = "5px";
-  installButton.style.fontSize = "16px";
-  installButton.style.cursor = "pointer";
   
-  document.body.appendChild(installButton);
 
   installButton.addEventListener('click', () => {
     // Show the install prompt
