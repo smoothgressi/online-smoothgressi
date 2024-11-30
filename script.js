@@ -112,24 +112,47 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent the default prompt from appearing
   e.preventDefault();
-  // Stash the event so it can be triggered later.
+  
+  // Stash the event so it can be triggered later
   deferredPrompt = e;
 
-  // No button is added, the prompt will be triggered automatically
-  // Show the install prompt when appropriate (could be triggered by some user action later)
-  deferredPrompt.prompt();
+  // Create a custom install button with your desired text
+  const installButton = document.createElement("button");
+  installButton.innerText = "Installer Online Smoothgressi en tant qu'app";  // Customize the button text
+  installButton.style.position = "fixed";
+  installButton.style.bottom = "20px";
+  installButton.style.left = "20px";
+  installButton.style.padding = "10px 20px";
+  installButton.style.backgroundColor = "#28a745";
+  installButton.style.color = "#fff";
+  installButton.style.border = "none";
+  installButton.style.borderRadius = "5px";
+  installButton.style.fontSize = "16px";
+  installButton.style.cursor = "pointer";
 
-  // Wait for the user to respond to the prompt
-  deferredPrompt.userChoice.then((choiceResult) => {
-    if (choiceResult.outcome === 'accepted') {
-      console.log('User accepted the install prompt');
-    } else {
-      console.log('User dismissed the install prompt');
-    }
-    // Reset the deferredPrompt variable
-    deferredPrompt = null;
+  document.body.appendChild(installButton);
+
+  installButton.addEventListener('click', () => {
+    // Show the install prompt
+    deferredPrompt.prompt();
+
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+      }
+
+      // Hide the button after the user responds
+      installButton.style.display = 'none';
+
+      // Reset the deferredPrompt variable
+      deferredPrompt = null;
+    });
   });
 });
+
 
 
 // Register the service worker (optional for offline functionality)
