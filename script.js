@@ -114,25 +114,23 @@ window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
-  // Show a custom install button in your UI (optional).
-  
 
-  installButton.addEventListener('click', () => {
-    // Show the install prompt
-    deferredPrompt.prompt();
-    
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the install prompt');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-      // Reset the deferredPrompt variable
-      deferredPrompt = null;
-    });
+  // No button is added, the prompt will be triggered automatically
+  // Show the install prompt when appropriate (could be triggered by some user action later)
+  deferredPrompt.prompt();
+
+  // Wait for the user to respond to the prompt
+  deferredPrompt.userChoice.then((choiceResult) => {
+    if (choiceResult.outcome === 'accepted') {
+      console.log('User accepted the install prompt');
+    } else {
+      console.log('User dismissed the install prompt');
+    }
+    // Reset the deferredPrompt variable
+    deferredPrompt = null;
   });
 });
+
 
 // Register the service worker (optional for offline functionality)
 if ('serviceWorker' in navigator) {
