@@ -1,0 +1,21 @@
+{
+  "name": "Online Smoothgressi",
+  "short_name": "Online Smoothgressi",
+  "description": "Créez des graph facilement en lige",
+  "start_url": "/online-smoothgressi",
+  "display": "standalone",
+  "background_color": "#f0f8ff",
+  "theme_color": "#2e8b57",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
