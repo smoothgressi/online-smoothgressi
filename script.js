@@ -170,3 +170,14 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+window.addEventListener('load', () => {
+  // Detect if the app is running in standalone mode (installed as a PWA)
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    // The app is running in standalone mode, so hide the "Retourner à l'accueil" button
+    const homeButton = document.querySelector('.navbar .nav-link'); // Assuming the button has this class
+    if (homeButton) {
+      homeButton.style.display = 'none'; // Hide the button
+    }
+  }
+});
+
