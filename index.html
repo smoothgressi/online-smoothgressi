@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smoothgressi - Graphiques</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Barre avec logo et navbar -->
+  <div class="header">
+    <div class="branding">
+      <img src="logo.png" alt="Logo">
+      <h2>Smoothgressi</h2>
+    </div>
+    <div class="navbar">
+      <div class="dropdown">
+        <button class="dropbtn">Fichier</button>
+        <div class="dropdown-content">
+          <a href="#" id="new-graph">Nouveau</a>
+        </div>
+      </div>
+      <a href="https://smoothgressi.github.io" class="nav-link">Retourner a l'acceuil</a>
+    </div>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="container">
+    <p id="intro-text">              Cliquez sur "Fichier > Nouveau" pour commencer à créer un graphique.</p>
+    <section id="graph-output" style="display: none;">
+      <canvas id="chart"></canvas>
+    </section>
+  </div>
+
+  <!-- Texte en bas de page -->
+  <div class="footer">
+    <p>Cette appli web n'est pas complete. Pour la meilleure experience, utilisez la version bureau disponible a l'acceuil du site.</p>
+  </div>
+
+  <!-- Popup for Graph Creation -->
+  <div class="overlay" id="popup-overlay"></div>
+  <div class="popup" id="graph-popup">
+    <h3>Créer un Nouveau Graphique</h3>
+    <form id="data-form">
+      <label for="x-values">Valeurs X (séparées par des virgules) :</label>
+      <input type="text" id="x-values" placeholder="ex: 1,2,3" required>
+      <label for="y-values">Valeurs Y (séparées par des virgules) :</label>
+      <input type="text" id="y-values" placeholder="ex: 2,4,6" required>
+      <label for="graph-title">Titre du Graphique :</label>
+      <input type="text" id="graph-title" placeholder="Titre du Graphique">
+      <label for="x-axis-label">Label de l'Axe X :</label>
+      <input type="text" id="x-axis-label" placeholder="Label de l'Axe X">
+      <label for="y-axis-label">Label de l'Axe Y :</label>
+      <input type="text" id="y-axis-label" placeholder="Label de l'Axe Y">
+      <div class="popup-buttons">
+        <button type="submit" class="btn">Créer</button>
+        <button type="button" class="btn close-btn">Annuler</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
