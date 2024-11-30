@@ -150,13 +150,15 @@ window.addEventListener('beforeinstallprompt', (e) => {
 // Register the service worker (optional for offline functionality)
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then((registration) => {
-        console.log('Service Worker registered with scope:', registration.scope);
-      })
-      .catch((error) => {
-        console.log('Service Worker registration failed:', error);
-      });
+    navigator.serviceWorker.register('/online-smoothgressi/service-worker.js', {
+      scope: '/online-smoothgressi/'  // Register with the correct scope
+    })
+    .then((registration) => {
+      console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch((error) => {
+      console.log('Service Worker registration failed:', error);
+    });
   });
 }
 
