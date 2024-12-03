@@ -195,3 +195,38 @@ if ('windowControlsOverlay' in navigator) {
   updateOverlayStyles(); // Initial call
 }
 
+function isStandalone() {
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+}
+
+if (isStandalone()) {
+  // App is running in standalone mode
+  document.querySelector('.nav-link').style.display = 'none'; // Hide "Retourner à l'accueil"
+} else {
+  // App is running in a browser
+  document.querySelector('.nav-link').style.display = 'block'; // Show "Retourner à l'accueil"
+}
+
+function adjustHeader() {
+  const header = document.querySelector('.header');
+  const logo = header.querySelector('img');
+  const title = header.querySelector('h2');
+  const navLink = document.querySelector('.nav-link');
+
+  if (isStandalone()) {
+    // App is running in standalone mode
+    header.classList.add('standalone');
+    navLink.style.display = 'none'; // Hide "Retourner à l'accueil"
+  } else {
+    // App is running in a browser
+    header.classList.remove('standalone');
+    navLink.style.display = 'block'; // Show "Retourner à l'accueil"
+  }
+}
+
+// Detect when the app is launched
+window.addEventListener('load', adjustHeader);
+window.matchMedia('(display-mode: standalone)').addEventListener('change', adjustHeader);
+
+
+window.addEventListener('resize', adjustHeader);

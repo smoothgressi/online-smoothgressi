@@ -10,18 +10,45 @@ body {
     min-height: 100vh;
   }
   
-    /* Make the header adapt to the Window Controls Overlay */
   .header {
     display: flex;
     align-items: center;
-    background-color: #2e8b57; /* Your app's theme color */
+    justify-content: space-between;
+    background-color: #2e8b57;
     color: white;
-    padding-left: env(titlebar-area-x, 0);
-    padding-right: env(titlebar-area-width, 0);
-    height: env(titlebar-area-height, 50px); /* Default height if env() not supported */
-    margin: 0;
-    -webkit-app-region: drag; /* Allows the header to be draggable */
+    padding: 10px;
+    height: auto; /* Dynamically adjusted */
+    -webkit-app-region: drag;
+    transition: height 0.3s ease, padding 0.3s ease;
   }
+  
+  .header img {
+    height: 40px; /* Default size for the logo */
+    transition: height 0.3s ease;
+  }
+  
+  .header.standalone img {
+    height: 30px; /* Smaller size for the logo in app mode */
+  }
+  
+  .header h2 {
+    font-size: 1.5rem; /* Default font size */
+    transition: font-size 0.3s ease;
+  }
+  
+  .header.standalone h2 {
+    font-size: 1.2rem; /* Smaller font size in app mode */
+  }
+  
+  .navbar .nav-link {
+    font-size: 1rem;
+    transition: font-size 0.3s ease;
+  }
+  
+  .navbar .nav-link.standalone {
+    display: none; /* Hide link when in standalone mode */
+  }
+  
 
   /* Ensure buttons (like Fichier dropdown) are not draggable */
   .navbar, .nav-link {
