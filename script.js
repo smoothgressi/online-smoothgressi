@@ -230,3 +230,22 @@ window.matchMedia('(display-mode: standalone)').addEventListener('change', adjus
 
 
 window.addEventListener('resize', adjustHeader);
+
+
+function adjustNavbarForStandalone() {
+  const navbar = document.querySelector('.navbar');
+  
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    // App is running in standalone mode
+    navbar.classList.add('standalone');
+  } else {
+    // App is running in a browser
+    navbar.classList.remove('standalone');
+  }
+}
+
+// Detect standalone mode on page load
+window.addEventListener('load', adjustNavbarForStandalone);
+
+// Listen for changes to display mode
+window.matchMedia('(display-mode: standalone)').addEventListener('change', adjustNavbarForStandalone);

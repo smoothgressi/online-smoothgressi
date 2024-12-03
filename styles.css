@@ -49,6 +49,23 @@ body {
     display: none; /* Hide link when in standalone mode */
   }
   
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+  .dropdown.standalone .dropbtn {
+    padding: 5px 10px;
+  }
 
   /* Ensure buttons (like Fichier dropdown) are not draggable */
   .navbar, .nav-link {
