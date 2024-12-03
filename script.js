@@ -181,3 +181,10 @@ window.addEventListener('load', () => {
   }
 });
 
+if ('windowControlsOverlay' in navigator) {
+  const isOverlayEnabled = navigator.windowControlsOverlay.visible;
+
+  if (isOverlayEnabled) {
+    document.body.classList.add('with-overlay');
+  }
+}

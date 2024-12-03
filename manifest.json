@@ -3,7 +3,8 @@
   "short_name": "Online Smoothgressi",
   "description": "Create and visualize graphs easily",
   "start_url": "/online-smoothgressi",
-  "display": "standalone", 
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"], 
   "background_color": "#f0f8ff", 
   "theme_color": "#2e8b57",
   "icons": [
