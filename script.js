@@ -182,9 +182,23 @@ window.addEventListener('load', () => {
 });
 
 if ('windowControlsOverlay' in navigator) {
-  const isOverlayEnabled = navigator.windowControlsOverlay.visible;
+  const updateOverlayStyles = () => {
+    const overlayVisible = navigator.windowControlsOverlay.visible;
+    const header = document.querySelector('.header');
+    
+    if (overlayVisible) {
+      header.style.paddingLeft = `${navigator.windowControlsOverlay.getBoundingClientRect().x}px`;
+      header.style.paddingRight = `${window.innerWidth - navigator.windowControlsOverlay.getBoundingClientRect().right}px`;
+    } else {
+      // Fallback for when overlay isn't visible
+      header.style.paddingLeft = '0';
+      header.style.paddingRight = '0';
+    }
+  };
 
-  if (isOverlayEnabled) {
-    document.body.classList.add('with-overlay');
-  }
+  // Listen for changes in the overlay visibility
+  navigator.windowControlsOverlay.addEventListener('geometrychange', updateOverlayStyles);
+
+  // Initial update
+  updateOverlayStyles();
 }

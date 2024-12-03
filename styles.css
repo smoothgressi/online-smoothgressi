@@ -10,15 +10,29 @@ body {
     min-height: 100vh;
   }
   
-  /* Barre en haut avec logo et navbar */
+    /* Make the header adapt to the Window Controls Overlay */
   .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #2e8b57;
-    padding: 10px 20px;
-    padding-top: env(titlebar-area-height, 0);
+    background-color: #2e8b57; /* Your app's theme color */
+    color: white;
+    padding-left: env(titlebar-area-x, 0);
+    padding-right: env(titlebar-area-width, 0);
+    height: env(titlebar-area-height, 50px); /* Default height if env() not supported */
+    margin: 0;
+    -webkit-app-region: drag; /* Allows the header to be draggable */
   }
+
+  /* Ensure buttons (like Fichier dropdown) are not draggable */
+  .navbar, .nav-link {
+    -webkit-app-region: no-drag;
+  }
+
+  .branding img {
+    height: 40px; /* Adjust size */
+    margin-right: 10px;
+  }
+
   
   .branding {
     display: flex;
